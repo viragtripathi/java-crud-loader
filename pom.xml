@@ -12,6 +12,14 @@
     <url>https://github.com/viragtripathi/java-crud-loader</url>
     <inceptionYear>2022</inceptionYear>
 
+    <licenses>
+        <license>
+            <name>Virag Tripathi</name>
+            <url></url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <developers>
         <developer>
             <id>viragtripathi</id>
