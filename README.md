@@ -6,7 +6,7 @@
 
 ## Download
 
-<br>Download the [latest release](https://github.com/viragtripathi/java-crud-loader/releases/download/v1.0/java-crud-loader-1.0-SNAPSHOT.tar.gz) and un-tar (tar -xvf java-crud-loader-1.0-SNAPSHOT.tar.gz) the java-crud-loader-1.0-SNAPSHOT.tar.gz archive.
+<br>Download the [latest release](https://github.com/viragtripathi/java-crud-loader/releases) archive.
 
 All the contents would be extracted under java-crud-loader directory
 
