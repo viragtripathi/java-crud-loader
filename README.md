@@ -1,24 +1,23 @@
-# redis-connect-crud-loader
+# java-crud-loader
 
 ## Prerequisites
 
-<br>• Redis Connect is set up and running with the same source database, schema and table(s) as redis-connect-crud-loader.
-<br>• Please have Java Runtime Environment ([OpenJRE](https://openjdk.java.net/install/) or OracleJRE) installed prior to running redis-connect-crud-loader.
+<br>• Please have Java Runtime Environment ([OpenJRE](https://openjdk.java.net/install/) or OracleJRE) installed prior to running java-crud-loader.
 
 ## Download
 
-<br>Download the [latest release](https://github.com/redis-field-engineering/redis-connect-crud-loader/releases/download/v1.0/redis-connect-crud-loader-1.0-SNAPSHOT.tar.gz) and un-tar (tar -xvf redis-connect-crud-loader-1.0-SNAPSHOT.tar.gz) the redis-connect-crud-loader-1.0-SNAPSHOT.tar.gz archive.
+<br>Download the [latest release](https://github.com/viragtripathi/java-crud-loader/releases/download/v1.0/java-crud-loader-1.0-SNAPSHOT.tar.gz) and un-tar (tar -xvf java-crud-loader-1.0-SNAPSHOT.tar.gz) the java-crud-loader-1.0-SNAPSHOT.tar.gz archive.
 
-All the contents would be extracted under redis-connect-crud-loader directory
+All the contents would be extracted under java-crud-loader directory
 
-Contents of redis-connect-crud-loader
+Contents of java-crud-loader
 <br>•	bin – contains script files
 <br>•	lib – contains java libraries
 <br>•	config – contains sample config and data files for crud loader
 
 ## Configuration
 
-<br>redis-connect-crud-loader includes drivers for the most common RDBMSs:
+<br>java-crud-loader includes drivers for the most common RDBMSs:
 
 <br>• Oracle
 <br>jdbc:oracle:thin:@myhost:1521:orcl
@@ -38,14 +37,14 @@ Contents of redis-connect-crud-loader
 <details><summary>Sample config.yml</summary>
 <p>
 
-#### Sample config.yml under redis-connect-crud-loader/config folder
+#### Sample config.yml under java-crud-loader/config folder
 ```yml
 connections:
   source:
     username: sa #DB user
-    password: Redis@123 #DB password
+    password: Password@123 #DB password
     type: mssqlserver #this value can not be changed for mssqlserver
-    jdbcUrl: "jdbc:sqlserver://127.0.0.1:1433;database=RedisLabsCDC"
+    jdbcUrl: "jdbc:sqlserver://127.0.0.1:1433;database=defaultdb"
     maximumPoolSize: 10 #This property controls the maximum size that the pool is allowed to reach, including both idle and in-use connections.
     minimumIdle: 2 #This property controls the maximum amount of time that a connection is allowed to sit idle in the pool. This setting only applies when minimumIdle is defined to be less than maximumPoolSize.
     tableName: dbo.emp #table name in schema.table format
@@ -74,13 +73,13 @@ Generate data using cURL with the following command:
 ## Launch
 
 <br>[*nix OS](https://en.wikipedia.org/wiki/Unix-like):
-`redis-connect-crud-loader/bin$ ./start.sh`
+`java-crud-loader/bin$ ./start.sh`
 <br>Windows OS:
-`redis-connect-crud-loader\bin> start.bat`
+`java-crud-loader\bin> start.bat`
 
 ```bash
-Usage: redis-connect-crud-loader [OPTIONS] [COMMAND]
-CRUD loader for redis-connect with random Insert, Update and Delete events.
+Usage: java-crud-loader [OPTIONS] [COMMAND]
+A generic CRUD loader to load data from sql and csv files, generate fake data and generate random Insert, Update and Delete events.
   -h, --help   Show this help message and exit.
 Commands:
   crudloader  Load CSV data to source database and execute random Insert, Update and Delete events.

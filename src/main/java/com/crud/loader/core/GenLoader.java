@@ -1,8 +1,8 @@
-package com.redis.connect.crud.loader.core;
+package com.crud.loader.core;
 
 import com.github.javafaker.Faker;
-import com.redis.connect.crud.loader.config.LoaderConfig;
-import com.redis.connect.crud.loader.connections.JDBCConnectionProvider;
+import com.crud.loader.config.LoaderConfig;
+import com.crud.loader.connections.JDBCConnectionProvider;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

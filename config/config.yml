@@ -1,7 +1,7 @@
 connections:
   source:
-    username: redisconnect # DB user
-    password: Redis@123 # DB password
+    username: user # DB user
+    password: Password@123 # DB password
     type: postgres # this value can not be changed for postgres
     name: rc-pg # database pool name
     jdbcUrl: "jdbc:postgresql://127.0.0.1:5436/RedisConnect"

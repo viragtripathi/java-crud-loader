@@ -1,4 +1,4 @@
-package com.redis.connect.crud.loader.core;
+package com.crud.loader.core;
 
 import picocli.AutoComplete;
 import picocli.CommandLine;

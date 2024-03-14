@@ -1,9 +1,9 @@
-package com.redis.connect.crud.loader.config;
+package com.crud.loader.config;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.redis.connect.crud.loader.config.model.EnvConfig;
+import com.crud.loader.config.model.EnvConfig;
 import lombok.Getter;
 
 import java.io.File;
@@ -17,10 +17,11 @@ import java.io.File;
 @Getter
 public enum LoaderConfig {
     INSTANCE;
-    final String CONFIG_LOCATION_PROPERTY = "redisconnect.crud.loader.configLocation";
+    final String CONFIG_LOCATION_PROPERTY = "crud.loader.configLocation";
     final ObjectMapper yamlObjectMapper;
     final ObjectMapper objectMapper;
 
+    @Getter
     EnvConfig envConfig;
 
     LoaderConfig() {
@@ -30,12 +31,8 @@ public enum LoaderConfig {
         try {
             envConfig = yamlObjectMapper.readValue(new File(System.getProperty(CONFIG_LOCATION_PROPERTY).concat(File.separator).concat("config.yml")), EnvConfig.class);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Exception occurred: " + e.getMessage());
         }
-    }
-
-    public EnvConfig getEnvConfig() {
-        return envConfig;
     }
 
 }

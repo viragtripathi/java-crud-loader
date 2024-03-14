@@ -1,6 +1,6 @@
-package com.redis.connect.crud.loader.connections;
+package com.crud.loader.connections;
 
-import com.redis.connect.crud.loader.config.LoaderConfig;
+import com.crud.loader.config.LoaderConfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,6 @@ import java.util.Map;
 
 @Slf4j
 public class JDBCConnectionProvider implements ConnectionProvider<Connection> {
-
     private final Map<String,HikariDataSource> DATA_SOURCE_MAP = new HashMap<>();
     private Connection connection = null;
 
@@ -41,7 +40,6 @@ public class JDBCConnectionProvider implements ConnectionProvider<Connection> {
         try {
             connection = dataSource.getConnection();
         } catch (SQLException e) {
-            e.printStackTrace();
             log.error(e.getMessage());
         }
         return connection;

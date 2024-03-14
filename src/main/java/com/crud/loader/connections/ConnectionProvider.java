@@ -1,4 +1,4 @@
-package com.redis.connect.crud.loader.connections;
+package com.crud.loader.connections;
 
 /**
  *

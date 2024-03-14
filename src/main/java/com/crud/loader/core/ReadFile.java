@@ -1,8 +1,6 @@
-package com.redis.connect.crud.loader.core;
+package com.crud.loader.core;
 
 import lombok.extern.slf4j.Slf4j;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -52,16 +50,5 @@ public class ReadFile {
                 result.add(br.readLine());
             }
         return result;
-    }
-
-    /**
-     * @param fileName <fileName>Name of the JSON file.</fileName>
-     * @return org.json.simple.JSONArray result
-     */
-    public JSONArray readFileAsJson(String fileName) throws Exception {
-        JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader(fileName));
-
-        return (JSONArray) obj;
     }
 }

@@ -4,26 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.redis.connect.crud.loader</groupId>
-    <artifactId>redis-connect-crud-loader</artifactId>
-    <name>RedisConnect CRUD Loader</name>
-    <description>CRUD Loader for RedisConnect</description>
+    <groupId>com.crud.loader</groupId>
+    <artifactId>java-crud-loader</artifactId>
+    <name>Java CRUD Loader</name>
+    <description>CRUD Loader</description>
     <version>1.0-SNAPSHOT</version>
-    <url>https://github.com/redis-field-engineering/redis-connect-crud-loader</url>
+    <url>https://github.com/viragtripathi/java-crud-loader</url>
     <inceptionYear>2022</inceptionYear>
-
-    <licenses>
-        <license>
-            <name>Redis Enterprise License</name>
-            <url>https://redis.com/legal/licenses/</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
 
     <developers>
         <developer>
             <id>viragtripathi</id>
-            <name>Redis</name>
+            <name>Virag Tripathi</name>
             <url>https://github.com/viragtripathi</url>
             <roles>
                 <role>Committer</role>
@@ -91,7 +83,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.5.3</version>
+            <version>42.7.2</version>
         </dependency>
         <dependency>
             <groupId>com.ibm.db2</groupId>
@@ -102,11 +94,6 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.9.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -212,7 +199,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
-                            <mainClass>com.redis.connect.crud.loader.LoaderMain</mainClass>
+                            <mainClass>com.crud.loader.LoaderMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -254,7 +241,6 @@
                             <descriptors>
                                 <descriptor>src/assembly/bin.xml</descriptor>
                             </descriptors>
-                            <finalName>${project.artifactId}-${project.version}</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
                     </execution>
@@ -269,7 +255,7 @@
             <activation>
                 <activeByDefault>false</activeByDefault>
                 <property>
-                    <name>redis-connect-crud-loader</name>
+                    <name>java-crud-loader</name>
                 </property>
             </activation>
             <build>
@@ -292,9 +278,6 @@
                     </plugin>
                     <plugin>
                         <artifactId>maven-assembly-plugin</artifactId>
-                        <configuration>
-                            <finalName>${project.artifactId}-${project.version}</finalName>
-                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.jreleaser</groupId>
@@ -310,7 +293,7 @@
                                 <configuration>
                                     <jreleaser>
                                         <distributions>
-                                            <redis-connect-archive>
+                                            <java-crud-loader-archive>
                                                 <artifacts>
                                                     <artifact>
                                                         <path>
@@ -318,11 +301,11 @@
                                                         </path>
                                                     </artifact>
                                                 </artifacts>
-                                            </redis-connect-archive>
+                                            </java-crud-loader-archive>
                                         </distributions>
                                         <release>
                                             <github>
-                                                <owner>redis-field-engineering</owner>
+                                                <owner>viragtripathi</owner>
                                                 <branch>main</branch>
                                                 <commitAuthor>
                                                     <name>viragtripathi</name>

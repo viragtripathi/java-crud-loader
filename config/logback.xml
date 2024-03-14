@@ -1,5 +1,5 @@
 <configuration debug="false" scan="true" scanPeriod="30 seconds">
-    <property name="LOG_PATH" value="logs/redis-connect-crud-loader.log"/>
+    <property name="LOG_PATH" value="logs/java-crud-loader.log"/>
     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -22,7 +22,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.redis" level="INFO" additivity="false">
+    <logger name="com.crud" level="INFO" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
         <appender-ref ref="CONSOLE" />
     </logger>

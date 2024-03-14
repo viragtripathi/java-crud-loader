@@ -1,8 +1,8 @@
-package com.redis.connect.crud.loader.core;
+package com.crud.loader.core;
 
 import com.opencsv.CSVReader;
-import com.redis.connect.crud.loader.config.LoaderConfig;
-import com.redis.connect.crud.loader.connections.JDBCConnectionProvider;
+import com.crud.loader.config.LoaderConfig;
+import com.crud.loader.connections.JDBCConnectionProvider;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -83,7 +83,6 @@ public class CRUDLoader implements Runnable {
             log.info("Loading {} into {} table with batchSize={}.", filePath, CRUDLoader.tableName, batchSize);
 
         } catch (Exception e) {
-            e.printStackTrace();
             throw new Exception("Error occurred while executing file. "
                     + ExceptionUtils.getRootCauseMessage(e));
         }
@@ -165,7 +164,6 @@ public class CRUDLoader implements Runnable {
             long timeElapsed = Duration.between(start, finish).toMillis();
             log.info("It took {} ms to load {} csv records.", timeElapsed, count);
         } catch (Exception e) {
-            e.printStackTrace();
             throw new Exception(
                     "Error occurred while loading data from csv file to the database. "
                             + ExceptionUtils.getRootCauseMessage(e));
@@ -190,7 +188,6 @@ public class CRUDLoader implements Runnable {
             rs.close();
             st.close();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during select " + "MESSAGE: {} STACKTRACE: {}",
                     instanceId, WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));
@@ -221,7 +218,6 @@ public class CRUDLoader implements Runnable {
 
             st.close();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during update " + "MESSAGE: {} STACKTRACE: {}",
                     instanceId, WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));
@@ -245,7 +241,6 @@ public class CRUDLoader implements Runnable {
             st.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during updatedSelect " + "MESSAGE: {} STACKTRACE: {}",
                     instanceId, WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));
@@ -276,7 +271,6 @@ public class CRUDLoader implements Runnable {
 
             st.close();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during delete " + "MESSAGE: {} STACKTRACE: {}",
                     instanceId, WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));
@@ -291,7 +285,6 @@ public class CRUDLoader implements Runnable {
 
             st.close();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during deleteAll " + "MESSAGE: {} STACKTRACE: {}",
                     instanceId, WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));
@@ -311,7 +304,6 @@ public class CRUDLoader implements Runnable {
             stmt.close();
             rs.close();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during count " + "MESSAGE: {} STACKTRACE: {}",
                     instanceId, WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));
@@ -401,7 +393,6 @@ public class CRUDLoader implements Runnable {
             log.info("It took {} ms to finish {} with {} iterations.", timeElapsed, WHOAMI, iteration);
             connection.close();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during runAll " + "MESSAGE: {} STACKTRACE: {}",
                     instanceId, WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));

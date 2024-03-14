@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="loadsql" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.redis.connect.crud.loader.LoaderMain" />
-    <module name="redis-connect-crud-loader" />
+    <option name="MAIN_CLASS_NAME" value="com.crud.loader.LoaderMain" />
+    <module name="java-crud-loader" />
     <option name="PROGRAM_PARAMETERS" value="loadsql" />
-    <option name="VM_PARAMETERS" value="-Dlogback.configurationFile=$PROJECT_DIR$/config/logback.xml -Dredisconnect.crud.loader.configLocation=$PROJECT_DIR$/config" />
+    <option name="VM_PARAMETERS" value="-Dlogback.configurationFile=$PROJECT_DIR$/config/logback.xml -Dcrud.loader.configLocation=$PROJECT_DIR$/config" />
     <extension name="net.ashald.envfile">
       <option name="IS_ENABLED" value="false" />
       <option name="IS_SUBST" value="false" />

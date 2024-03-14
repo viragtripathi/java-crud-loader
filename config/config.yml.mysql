@@ -1,12 +1,12 @@
 connections:
   source:
     username: root #DB user
-    password: Redis@123 #DB password
+    password: Password@123 #DB password
     type: mysql #this value can not be changed for mysql
-    jdbcUrl: "jdbc:mysql://redis-cdc.demo.redislabs.com:3306/RedisLabsCDC" 
+    jdbcUrl: "jdbc:mysql://localhost:3306/demo"
     maximumPoolSize: 10 #This property controls the maximum size that the pool is allowed to reach, including both idle and in-use connections.
     minimumIdle: 2 #This property controls the maximum amount of time that a connection is allowed to sit idle in the pool. This setting only applies when minimumIdle is defined to be less than maximumPoolSize.
-    tableName: RedisLabsCDC.emp #table name in schema.table format
+    tableName: demo.emp #table name in schema.table format
     batchSize: 100 #batch size
     loadQueryFile: insert.sql #insert query for loadsql option
     csvFile: emp.csv #csv data with header to load (crudloader option)

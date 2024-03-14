@@ -1,9 +1,9 @@
-package com.redis.connect.crud.loader.source.rdb;
+package com.crud.loader.source.rdb;
 
-import com.redis.connect.crud.loader.connections.JDBCConnectionProvider;
-import com.redis.connect.crud.loader.core.CoreConfig;
-import com.redis.connect.crud.loader.config.LoaderConfig;
-import com.redis.connect.crud.loader.core.ReadFile;
+import com.crud.loader.config.LoaderConfig;
+import com.crud.loader.connections.JDBCConnectionProvider;
+import com.crud.loader.core.CoreConfig;
+import com.crud.loader.core.ReadFile;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -31,16 +31,16 @@ import java.util.Map;
 @CommandLine.Command(name = "loadsql",
         description = "Load data into source table using sql insert statements.")
 public class LoadRDB implements Runnable {
-    private Connection connection;
+    protected Connection connection;
 
     private static final String WHOAMI = "LoadRDB";
     private static final Map<String, Object> sourceConfig = LoaderConfig.INSTANCE.getEnvConfig().getConnection("source");
     private static final String tableName = (String) sourceConfig.get("tableName");
-    private int batchSize = (int) sourceConfig.getOrDefault("batchSize", 100);
-    private boolean truncateBeforeLoad = (boolean) sourceConfig.getOrDefault("truncateBeforeLoad", true);
+    protected int batchSize = (int) sourceConfig.getOrDefault("batchSize", 100);
+    protected boolean truncateBeforeLoad = (boolean) sourceConfig.getOrDefault("truncateBeforeLoad", true);
 
-    private String lineQuery;
-    private ArrayList<String> fileQuery;
+    protected String lineQuery;
+    protected ArrayList<String> fileQuery;
 
     @Override
     public void run() {
@@ -69,7 +69,6 @@ public class LoadRDB implements Runnable {
             connection.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
             log.error("Instance: {} {} failed during run " + "MESSAGE: {} STACKTRACE: {}",
                     ManagementFactory.getRuntimeMXBean().getName(), WHOAMI,
                     ExceptionUtils.getRootCauseMessage(e), ExceptionUtils.getRootCauseStackTrace(e));
@@ -102,7 +101,6 @@ public class LoadRDB implements Runnable {
                 } else {
                     log.error("SQL file with insert statements is missing for the load.");
                     log.info("Skipping sql load and exiting..");
-
                 }
             }
 
@@ -111,7 +109,6 @@ public class LoadRDB implements Runnable {
 
             loadStatement.close();
         } catch (Exception e) {
-            e.printStackTrace();
             throw new Exception(
                     "Error occurred while loading data from insert statements. "
                             + ExceptionUtils.getRootCauseMessage(e));

@@ -1,9 +1,9 @@
 connections:
   source:
     username: sa #DB user
-    password: Redis@123 #DB password
+    password: Password@123 #DB password
     type: mssqlserver #this value can not be changed for mssqlserver
-    jdbcUrl: "jdbc:sqlserver://127.0.0.1:1433;database=RedisLabsCDC"
+    jdbcUrl: "jdbc:sqlserver://127.0.0.1:1433;database=demo"
     maximumPoolSize: 10 #This property controls the maximum size that the pool is allowed to reach, including both idle and in-use connections.
     minimumIdle: 2 #This property controls the maximum amount of time that a connection is allowed to sit idle in the pool. This setting only applies when minimumIdle is defined to be less than maximumPoolSize.
     tableName: dbo.emp #table name in schema.table format

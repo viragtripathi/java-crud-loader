@@ -1,7 +1,7 @@
-package com.redis.connect.crud.loader;
+package com.crud.loader;
 
-import com.redis.connect.crud.loader.core.*;
-import com.redis.connect.crud.loader.source.rdb.LoadRDB;
+import com.crud.loader.core.*;
+import com.crud.loader.source.rdb.LoadRDB;
 import picocli.CommandLine;
 
 /**
